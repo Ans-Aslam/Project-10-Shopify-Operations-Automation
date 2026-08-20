@@ -19,7 +19,7 @@ Each workflow handles a specific operational responsibility while the centralize
 
 ## Architecture
 
-
+     
                     Shopify
                        │
         ┌──────────────┼──────────────┐
