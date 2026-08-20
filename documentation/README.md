@@ -29,6 +29,9 @@ Instead of placing all business operations into one large workflow, the system i
                             |
                             v
                    10-F Error Handler
+                            |
+                            v
+                          SLACK
 
 ## **Workflow Modules**
 
@@ -239,7 +242,4 @@ Examples include:
 
 •	Passwords 
 
-•	Private environment variables
-                            |
-                            v
-                          SLACK
+•	Private environment variable
