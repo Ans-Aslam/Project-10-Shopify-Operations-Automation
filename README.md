@@ -17,31 +17,33 @@ The system is divided into six independent workflows:
 
 Each workflow handles a specific operational responsibility while the centralized error handler provides a common mechanism for managing workflow failures.
 
-## Architecture
 
-     
-                    Shopify
-                       │
-        ┌──────────────┼──────────────┐
-        │              │              │
-        ▼              ▼              ▼
-   10-A Orders    10-B Fulfillment   10-C Inventory
-        │              │              │
-        └──────────────┼──────────────┘
-                       │
-                 Shopify Operations
-                       │
-             ┌─────────┴─────────┐
-             ▼                   ▼
-        10-D Refunds        10-E Reporting
-             │                   │
-             └─────────┬─────────┘
-                       ▼
-               10-F Error Handler
-                       │
-                       ▼
-                     Slack
-```
+## Workflow Architecture
+
+```text
+                         SHOPIFY
+                            |
+          +-----------------+-----------------+
+          |                 |                 |
+          v                 v                 v
+      10-A Orders      10-B Fulfillment   10-C Inventory
+          |                 |                 |
+          +-----------------+-----------------+
+                            |
+                     SHOPIFY OPERATIONS
+                            |
+                +-----------+-----------+
+                |                       |
+                v                       v
+           10-D Refunds          10-E Daily Report
+                |                       |
+                +-----------+-----------+
+                            |
+                            v
+                   10-F Error Handler
+                            |
+                            v
+                          SLACK
 
 ## Workflow Modules
 
